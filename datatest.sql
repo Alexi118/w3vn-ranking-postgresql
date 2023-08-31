@@ -12,6 +12,6 @@ VALUES
 
 --truncate all row & reset sequences on table
 TRUNCATE table players CASCADE;
-ALTER SEQUENCE players_player_id_seq RESTART 
+ALTER SEQUENCE players_player_id_seq RESTART;
 TRUNCATE table matches;
-ALTER SEQUENCE matches_game_id_seq RESTART
+ALTER SEQUENCE matches_game_id_seq RESTART;
