@@ -1,14 +1,14 @@
 --FINAL QUERY FOR GPLAY RANKING
 SELECT 
      p.name, p.race, ROUND(p.elo),
-     (CASE WHEN (p.elo>=1900)
-          THEN 'A'
-          WHEN (p.elo>=1700)
-          THEN 'B'
-         WHEN (p.elo>=1300)
-          THEN 'C'
-          ELSE 'D'
-     END)as League,
+     -- (CASE WHEN (p.elo>=1900)
+     --      THEN 'A'
+     --      WHEN (p.elo>=1700)
+     --      THEN 'B'
+     --     WHEN (p.elo>=1300)
+     --      THEN 'C'
+     --      ELSE 'D'
+     -- END)as League,
     (CASE WHEN (p.win>0)
           THEN 
                (p.win /(p.win + p.lose)*100)
