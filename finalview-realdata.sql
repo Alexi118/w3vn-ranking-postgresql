@@ -1,23 +1,15 @@
---FINAL QUERY FOR GPLAY RANKING
+--CREATE VIEW FOR GPLAY RANKING
+create or replace view gplay_ranking as
 SELECT 
-     p.name, p.race, ROUND(p.elo),
-     -- (CASE WHEN (p.elo>=1900)
-     --      THEN 'A'
-     --      WHEN (p.elo>=1700)
-     --      THEN 'B'
-     --     WHEN (p.elo>=1300)
-     --      THEN 'C'
-     --      ELSE 'D'
-     -- END)as League,
-    (CASE WHEN (p.win>0)
+     rank() OVER (ORDER BY p.elo DESC),p.name, p.race, ROUND(p.elo),
+    ROUND((CASE WHEN (p.win>0)
           THEN 
                (p.win /(p.win + p.lose)*100)
           ELSE
                0
-     END)as winrate,
+     END))as winrate,
      p.win, p.lose, p.social
-FROM players p
-ORDER BY p.elo DESC;
+FROM players p;
 
 --migrate players
 INSERT INTO players(name,race,elo,social)
