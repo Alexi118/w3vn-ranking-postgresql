@@ -11,3 +11,9 @@ SELECT
      p.win, p.lose, p.social, p.prev_rank, p.player_id
 FROM players p;
 
+--CREATE VIEW FOR RACE STATISTICS
+create or replace view race_statistics as
+select
+    distinct(p.race),
+    COUNT(p.race),    
+from players p group by p.race;
