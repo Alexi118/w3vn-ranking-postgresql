@@ -1,8 +1,8 @@
 --migrate players
 INSERT INTO players(name,race,elo,social,prev_rank)
-VALUES('Hell','UD',1200,'cuongnd11@gmail.com',0),
-      ('Tenchu','OC',1000,'tenchu@gmail.com',0),
-      ('Clark','HU',1500,'clark@gmail.com',0),
+VALUES('Hell','UD-icon',1200,'cuongnd11@gmail.com',0),
+      ('Tenchu','OC-icon',1000,'tenchu@gmail.com',0),
+      ('Clark','HU-icon',1500,'clark@gmail.com',0),
       ('Simi','NE',1500,'simi@gmail.com',0);
 
 --migrate matches
@@ -18,23 +18,23 @@ ALTER SEQUENCE matches_game_id_seq RESTART;
 
 --migrate players
 INSERT INTO players(name,race,elo,social)
-VALUES('Peki','HU',2000,'Duong'),
-      ('Fervis','UD',1900,'Tran Tin'),
-      ('Tix3love3','UD',1800,'Hai'),
-      ('Pow','HU',1700,'Nguyen Dinh Vuong'),
-      ('Ninh','RMD',1600,'Austro'),
-      ('Shadow','OC',1500,'Ot Cay'),
-      ('TrieuVoi','OC',1400,'Nguyen Dinh Hoang'),
-      ('Kaioshin','OC',1300,'Dinh Quang Manh'),
-      ('DOMIVN','UD',1200,'Anh Khoa Nguyen'),
-      ('LQUES','OC',1100,'Le Quang'),
-      ('Kingtruong','OC',1000,'Truonggg'),
-      ('dailygao','OC',900,'Dung Phung'),
-      ('delley','UD',800,'Hoang Nhat'),
-      ('baobmtpro','OC',700,'Bao nho'),
-      ('sieuvukhi','UD',600,'Nguyen Hung'),
-      ('Lhd1998','OC',500,'Le Huynh Duc'),
-      ('lich','UD',400,'Nguyen Hoang Lich');
+VALUES('Peki','HU-icon',2000,'Duong'),
+      ('Fervis','UD-icon',1900,'Tran Tin'),
+      ('Tix3love3','UD-icon',1800,'Hai'),
+      ('Pow','HU-icon',1700,'Nguyen Dinh Vuong'),
+      ('Ninh','RMD-icon',1600,'Austro'),
+      ('Shadow','OC-icon',1500,'Ot Cay'),
+      ('TrieuVoi','OC-icon',1400,'Nguyen Dinh Hoang'),
+      ('Kaioshin','OC-icon',1300,'Dinh Quang Manh'),
+      ('DOMIVN','UD-icon',1200,'Anh Khoa Nguyen'),
+      ('LQUES','OC-icon',1100,'Le Quang'),
+      ('Kingtruong','OC-icon',1000,'Truonggg'),
+      ('dailygao','OC-icon',900,'Dung Phung'),
+      ('delley','UD-icon',800,'Hoang Nhat'),
+      ('baobmtpro','OC-icon',700,'Bao nho'),
+      ('sieuvukhi','UD-icon',600,'Nguyen Hung'),
+      ('Lhd1998','OC-icon',500,'Le Huynh Duc'),
+      ('lich','NE-icon',400,'Nguyen Hoang Lich');
 
 --migrate matches
 INSERT INTO matches(winner,loser)
