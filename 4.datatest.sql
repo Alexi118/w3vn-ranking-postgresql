@@ -17,24 +17,24 @@ TRUNCATE table matches;
 ALTER SEQUENCE matches_game_id_seq RESTART;
 
 --migrate players
-INSERT INTO players(name,race,elo,social)
-VALUES('Peki','HU-icon',2000,'Duong'),
-      ('Fervis','UD-icon',1900,'Tran Tin'),
-      ('Tix3love3','UD-icon',1800,'Hai'),
-      ('Pow','HU-icon',1700,'Nguyen Dinh Vuong'),
-      ('Ninh','RMD-icon',1600,'Austro'),
-      ('Shadow','OC-icon',1500,'Ot Cay'),
-      ('TrieuVoi','OC-icon',1400,'Nguyen Dinh Hoang'),
-      ('Kaioshin','OC-icon',1300,'Dinh Quang Manh'),
-      ('DOMIVN','UD-icon',1200,'Anh Khoa Nguyen'),
-      ('LQUES','OC-icon',1100,'Le Quang'),
-      ('Kingtruong','OC-icon',1000,'Truonggg'),
-      ('dailygao','OC-icon',900,'Dung Phung'),
-      ('delley','UD-icon',800,'Hoang Nhat'),
-      ('baobmtpro','OC-icon',700,'Bao nho'),
-      ('sieuvukhi','UD-icon',600,'Nguyen Hung'),
-      ('Lhd1998','OC-icon',500,'Le Huynh Duc'),
-      ('lich','NE-icon',400,'Nguyen Hoang Lich');
+INSERT INTO players(name,race,elo,social,prev_rank)
+VALUES('Peki','HU-icon',2000,'Duong',0),
+      ('Fervis','UD-icon',1900,'Tran Tin',0),
+      ('Tix3love3','UD-icon',1800,'Hai',0),
+      ('Pow','HU-icon',1700,'Nguyen Dinh Vuong',0),
+      ('Ninh','RMD-icon',1600,'Austro',0),
+      ('Shadow','OC-icon',1500,'Ot Cay',0),
+      ('TrieuVoi','OC-icon',1400,'Nguyen Dinh Hoang',0),
+      ('Kaioshin','OC-icon',1300,'Dinh Quang Manh',0),
+      ('DOMIVN','UD-icon',1200,'Anh Khoa Nguyen',0),
+      ('LQUES','OC-icon',1100,'Le Quang',0),
+      ('Kingtruong','OC-icon',1000,'Truonggg',0),
+      ('dailygao','OC-icon',900,'Dung Phung',0),
+      ('delley','UD-icon',800,'Hoang Nhat',0),
+      ('baobmtpro','OC-icon',700,'Bao nho',0),
+      ('sieuvukhi','UD-icon',600,'Nguyen Hung',0),
+      ('Lhd1998','OC-icon',500,'Le Huynh Duc',0),
+      ('lich','NE-icon',400,'Nguyen Hoang Lich',0);
 
 --migrate matches
 INSERT INTO matches(winner,loser)

@@ -7,7 +7,7 @@ CREATE TABLE players(
   social VARCHAR(255) NOT NULL,
   win FLOAT DEFAULT 0 NOT NULL,
   lose FLOAT DEFAULT 0 NOT NULL,
-  prev_rank BIGINT DEFAULT 0 NOT NULL
+  prev_rank INTEGER DEFAULT 0 NOT NULL
 );
 
 --create matches table
