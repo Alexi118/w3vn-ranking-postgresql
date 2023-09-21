@@ -1,15 +1,20 @@
---CREATE VIEW FOR GPLAY RANKING
-create or replace view gplay_ranking as
-SELECT 
-     rank() OVER (ORDER BY p.elo DESC),p.name, p.race, ROUND(p.elo),
-    ROUND((CASE WHEN (p.win>0)
-          THEN 
-               (p.win /(p.win + p.lose)*100)
-          ELSE
-               0
-     END))as winrate,
-     p.win, p.lose, p.social
-FROM players p;
+--migrate players
+INSERT INTO players(name,race,elo,social,prev_rank)
+VALUES('Hell','UD',1200,'cuongnd11@gmail.com',0),
+      ('Tenchu','OC',1000,'tenchu@gmail.com',0),
+      ('Clark','HU',1500,'clark@gmail.com',0),
+      ('Simi','NE',1500,'simi@gmail.com',0);
+
+--migrate matches
+INSERT INTO matches(winner,loser)
+VALUES 
+     ('Hell','Tenchu');
+
+--truncate all row & reset sequences on table
+TRUNCATE table players CASCADE;
+ALTER SEQUENCE players_player_id_seq RESTART;
+TRUNCATE table matches;
+ALTER SEQUENCE matches_game_id_seq RESTART;
 
 --migrate players
 INSERT INTO players(name,race,elo,social)
@@ -33,7 +38,7 @@ VALUES('Peki','HU',2000,'Duong'),
 
 --migrate matches
 INSERT INTO matches(winner,loser)
-VALUES 
+VALUES
      ('Fervis','Peki'),
      ('Fervis','Peki'),
      ('Pow','Shadow'),

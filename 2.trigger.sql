@@ -28,9 +28,9 @@ EXECUTE FUNCTION func_set_win_lose_to_players();
 CREATE OR REPLACE FUNCTION func_update_MMR_gain_lost()
   RETURNS TRIGGER
   LANGUAGE PLPGSQL
-AS 
+AS
 $$
-DECLARE 
+DECLARE
   winnerOnMatch VARCHAR(255);
   loserOnmatch VARCHAR(255);
   p1MMR FLOAT;
@@ -68,3 +68,29 @@ CREATE TRIGGER trigger_update_MMR_gain_lost
   ON matches
   FOR EACH ROW
 EXECUTE FUNCTION func_update_MMR_gain_lost();
+
+--Trigger for updating prev_rank on players
+CREATE OR REPLACE FUNCTION func_update_prev_rank()
+  RETURNS TRIGGER
+  LANGUAGE PLPGSQL
+AS 
+$$
+DECLARE
+BEGIN
+  UPDATE players set prev_rank = v_players.preR
+  FROM (
+  SELECT 
+	  p.rank as preR, p.player_id
+	  from gplay_ranking p
+  ) as v_players
+  WHERE players.player_id = v_players.player_id;
+  RETURN NULL;
+END;
+$$;
+
+DROP TRIGGER IF EXISTS trigger_update_prev_rank on matches;
+
+CREATE TRIGGER trigger_update_prev_rank
+  BEFORE INSERT
+  ON matches
+EXECUTE FUNCTION func_update_prev_rank();

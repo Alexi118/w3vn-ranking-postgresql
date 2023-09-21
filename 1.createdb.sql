@@ -1,12 +1,13 @@
 --create players table
-CREATE TABLE playerss(
+CREATE TABLE players(
   player_id SERIAl PRIMARY KEY,
   name VARCHAR(255) NOT NULL UNIQUE,
   race VARCHAR(255) NOT NULL,
   elo FLOAT,
   social VARCHAR(255) NOT NULL,
-  win FLOAT DEFAULT 0,
-  lose FLOAT DEFAULT 0
+  win FLOAT DEFAULT 0 NOT NULL,
+  lose FLOAT DEFAULT 0 NOT NULL,
+  prev_rank BIGINT DEFAULT 0 NOT NULL
 );
 
 --create matches table
