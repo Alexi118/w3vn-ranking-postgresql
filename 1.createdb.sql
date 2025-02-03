@@ -1,6 +1,6 @@
 --create players table
 CREATE TABLE players(
-  player_id SERIAl PRIMARY KEY,
+  player_id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL UNIQUE,
   race VARCHAR(255) NOT NULL,
   elo FLOAT,
@@ -12,7 +12,7 @@ CREATE TABLE players(
 
 --create matches table
 CREATE TABLE matches(
-  game_id SERIAl PRIMARY KEY, -- must be consecutive and start at 1!
+  game_id SERIAL PRIMARY KEY, -- must be consecutive and start at 1!
   winner VARCHAR(255) NOT NULL, -- won player
   loser VARCHAR(255) NOT NULL -- lost player
 );
